@@ -78,6 +78,11 @@ class ModuleMain(PluginModuleBase):
         elif command == "login_check":
             data = self.token_refresh(force=True)
             ret = {"ret": "success", "json": data}
+        elif command == "token_delete":
+            P.ModelSetting.set("token", "")
+            P.ModelSetting.set("token_time", "")
+            data = "OK"
+            ret = {"ret": "success", "json": data}
         return jsonify(ret)
 
     def process_api(self, sub, req):

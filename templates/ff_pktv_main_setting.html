@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-{{ macros.m_button_group([['globalSettingSaveBtn', '설정 저장'], ['login_check_btn', '로그인 확인']])}}
+{{ macros.m_button_group([['globalSettingSaveBtn', '설정 저장'], ['token_delete_btn', '토큰 초기화'], ['login_check_btn', '로그인 확인']])}}
 {{ macros.m_row_start('5') }}
 {{ macros.m_row_end() }}
 
@@ -56,6 +56,11 @@ $("body").on('click', '#yaml_select_btn', function (e) {
 $("body").on('click', '#login_check_btn', function(e){
   e.preventDefault();
   globalSendCommand('login_check');
+});
+
+$("body").on('click', '#token_delete_btn', function(e){
+  e.preventDefault();
+  globalSendCommand('token_delete');
 });
 
 </script>
